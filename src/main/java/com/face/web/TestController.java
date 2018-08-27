@@ -1,5 +1,6 @@
 package com.face.web;
 
+import com.face.jni.FDServiceJNI;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,8 @@ public class TestController {
         String newLibraryPath =  projectPath+"/doc/libarcsoft_fsdk_face_detection.so";
         System.load(newLibraryPath);
         modelMap.put("newLibraryPath",System.getProperty("java.library.path"));
+        FDServiceJNI fdServiceJNI = new FDServiceJNI();
+        modelMap.put("version",fdServiceJNI.getVersion());
         return "test";
     }
 
