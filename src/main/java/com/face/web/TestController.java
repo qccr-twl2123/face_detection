@@ -18,15 +18,33 @@ public class TestController {
         modelMap.put("projectPath",projectPath);
         String newLibraryPath = libraryPath+":"+projectPath+"/doc/";
         try {
+            setLibraryPath(projectPath+"/doc/");
+            System.loadLibrary("libarcsoft_fsdk_face_detection");
             addLibraryPath(projectPath+"/doc/");
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
         modelMap.put("newLibraryPath",System.getProperty("java.library.path"));
 
         return "test";
     }
 
+
+    /**
+     * Sets the java library path to the specified path
+     *
+     * @param path the new library path
+     * @throws Exception
+     */
+    public static void setLibraryPath(String path) throws Exception {
+        System.setProperty("java.library.path", path);
+        //set sys_paths to null
+        final Field sysPathsField = ClassLoader.class.getDeclaredField("sys_paths");
+        sysPathsField.setAccessible(true);
+        sysPathsField.set(null, null);
+    }
     /**
      * Adds the specified path to the java library path
      *
