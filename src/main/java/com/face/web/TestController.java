@@ -12,6 +12,9 @@ public class TestController {
         String projectPath = System.getProperty("user.dir");
         modelMap.put("libraryPath",libraryPath);
         modelMap.put("projectPath",projectPath);
+        String newLibraryPath = libraryPath+":"+projectPath+"/doc/";
+        System.loadLibrary(newLibraryPath);
+        modelMap.put("newLibraryPath",System.getProperty("java.library.path"));
 
         return "test";
     }
