@@ -25,6 +25,13 @@ public class TestController {
         return "test";
     }
 
+    @RequestMapping("test1")
+    public String test1(ModelMap modelMap){
+        System.loadLibrary("libarcsoft_fsdk_face_detection");
+        modelMap.put("path",System.getProperty("java.library.path"));
+        return "test1";
+    }
+
 
     /**
      * Sets the java library path to the specified path
