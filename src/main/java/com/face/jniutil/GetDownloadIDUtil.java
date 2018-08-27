@@ -25,14 +25,6 @@ public class GetDownloadIDUtil {
         Field sysPathsField = ClassLoader.class.getDeclaredField("sys_paths");
         sysPathsField.setAccessible(true); sysPathsField.set(null, null);
     }
-//    public static void main(String[] args){
-//        //-Djava.library.path="/Users/mark/mms/src/main/java/com/fxmms/common/jniutil"
-//        // /Users/mark/mms/src/main/java/com/fxmms/common/jniutil
-//        System.out.println(System.getProperty("java.library.path"));
-//        String mac = " 98-22-EF-E4-3F-8F";
-//        Asserts.check(mac!=null,"mac  null");
-//        GetDownloadID test = new GetDownloadID();
-//        System.out.println(test.getDownloadID(mac));
-//    }
+
 
 }

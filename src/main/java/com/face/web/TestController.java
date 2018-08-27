@@ -17,15 +17,6 @@ public class TestController {
         modelMap.put("libraryPath",libraryPath);
         modelMap.put("projectPath",projectPath);
         String newLibraryPath = libraryPath+":"+projectPath+"/doc/";
-        try {
-            setLibraryPath(projectPath+"/doc/");
-            System.loadLibrary("libarcsoft_fsdk_face_detection");
-            addLibraryPath(projectPath+"/doc/");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-
         modelMap.put("newLibraryPath",System.getProperty("java.library.path"));
 
         return "test";
