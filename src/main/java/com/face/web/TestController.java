@@ -22,6 +22,7 @@ public class TestController {
         modelMap.put("newLibraryPath",System.getProperty("java.library.path"));
         FDServiceJNI fdServiceJNI = new FDServiceJNI();
         modelMap.put("version",fdServiceJNI.getVersion());
+        modelMap.put("path",System.getProperty("user.dir")+"/doc/libarcsoft_fsdk_face_detection.so");
         return "test";
     }
 
