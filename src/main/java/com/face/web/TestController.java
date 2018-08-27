@@ -30,6 +30,7 @@ public class TestController {
     public String test1(ModelMap modelMap){
         System.loadLibrary("libarcsoft_fsdk_face_detection");
         modelMap.put("path",System.getProperty("java.library.path"));
+        modelMap.put("path1", modelMap.put("path1",System.getProperty("user.dir")+"/doc/libarcsoft_fsdk_face_detection.so"));
         return "test1";
     }
 
